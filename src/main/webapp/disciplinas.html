@@ -1,0 +1,88 @@
+
+<html ng-app="Prova">
+    <head >
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="/pages/angular.min.js"></script>
+        <script src="disciplina.js"></script>
+    </head>
+    <body ng-controller="DisciplinasController">
+        <table>
+            <tr>
+                <td>
+                    ID:
+                </td>
+                <td>
+                    <input type="text" ng-model="disciplina.id" ng-disabled="!isNovo" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Nome:
+                </td>
+                <td>
+                    <input type="text" ng-model="disciplina.nome" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Carga Horária:
+                </td>
+                <td>
+                    <input type="text" ng-model="disciplina.cargaHoraria" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Peso:
+                </td>
+                <td>
+                    <input type="text" ng-model="disciplina.peso" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" ng-click="salvar()">Salvar</button>
+                </td>
+            </tr>
+        </table>
+        
+        <table>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    Carga Horária
+                </th>
+                <th>
+                    Peso
+                </th>
+                <th>
+                    Opções
+                </th>
+            </tr>
+            <tr ng-repeat="d in disciplinas">
+                <td>
+                    {{d.id}}
+                </td>
+                <td>
+                    {{d.nome}}
+                </td>
+                <td>
+                    {{d.cargaHoraria}}
+                </td>
+                <td>
+                    {{d.peso}}
+                </td>
+                <td>
+                    <a href="#" ng-click="editar(d)">Editar</a>
+                    <a href="#" ng-click="excluir(d)">Excluir</a>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
